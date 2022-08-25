@@ -9,6 +9,9 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    private var timer: Timer?
+    var searchResponse: SearchResponse? = nil
+    let networkService = NetworkService()
     let searchController = UISearchController(searchResultsController: nil)
     
     @IBOutlet weak var tableView: UITableView!
@@ -20,10 +23,14 @@ class ViewController: UIViewController {
         setupSearchBar()
     }
     
+
+    
     
     func setupSearchBar() {
         navigationItem.searchController = searchController
         searchController.searchBar.delegate = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     
@@ -39,12 +46,12 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return searchResponse?.resultCount ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "Bar Baz Foo"
+        cell.textLabel?.text = searchResponse?.results[indexPath.row].trackName
         
         return cell
     }
@@ -54,7 +61,20 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension ViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print("\(searchText)")
+        
+        let urlString = "https://itunes.apple.com/search?term=\(searchText)&limit=25"
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
+            self.networkService.request(urlString: urlString) { [weak self] (result) in
+                switch result {
+                case .failure(let error):
+                    print("error: \(error)")
+                case .success(let success):
+                    self?.searchResponse = success
+                    self?.tableView.reloadData()
+                }
+            }
+        })
     }
     
 }

@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Search-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="JSONParsingPractice" customModuleProvider="target" sceneMemberID="viewController">
@@ -25,7 +25,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="K5w-a2-qLW"/>
+                    <navigationItem key="navigationItem" title="Search" id="K5w-a2-qLW"/>
                     <connections>
                         <outlet property="tableView" destination="XPG-Nw-4fh" id="0Sd-V9-6k5"/>
                     </connections>
