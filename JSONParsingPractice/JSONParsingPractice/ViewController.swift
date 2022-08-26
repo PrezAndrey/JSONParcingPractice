@@ -11,7 +11,7 @@ class ViewController: UIViewController {
     
     private var timer: Timer?
     var searchResponse: SearchResponse? = nil
-    let networkService = NetworkService()
+    let networkDataFetcher = NetworkDataFetcher()
     let searchController = UISearchController(searchResultsController: nil)
     
     @IBOutlet weak var tableView: UITableView!
@@ -46,7 +46,7 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchResponse?.resultCount ?? 0
+        return searchResponse?.results.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -62,17 +62,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 extension ViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        let urlString = "https://itunes.apple.com/search?term=\(searchText)&limit=25"
+        let urlString = "https://itunes.apple.com/search?term=\(searchText)&limit=5"
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
-            self.networkService.request(urlString: urlString) { [weak self] (result) in
-                switch result {
-                case .failure(let error):
-                    print("error: \(error)")
-                case .success(let success):
-                    self?.searchResponse = success
-                    self?.tableView.reloadData()
-                }
+            self.networkDataFetcher.fetchData(urlString: urlString) { (result) in
+                guard let result = result else { return }
+                self.searchResponse = result
+                self.tableView.reloadData()
             }
         })
     }

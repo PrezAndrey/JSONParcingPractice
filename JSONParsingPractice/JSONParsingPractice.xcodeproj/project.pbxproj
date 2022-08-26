@@ -13,8 +13,9 @@
 		4997A07528B6B106007A2B65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4997A07328B6B106007A2B65 /* Main.storyboard */; };
 		4997A07728B6B10B007A2B65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4997A07628B6B10B007A2B65 /* Assets.xcassets */; };
 		4997A07A28B6B10B007A2B65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4997A07828B6B10B007A2B65 /* LaunchScreen.storyboard */; };
-		4997A08228B7FB87007A2B65 /* SongResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4997A08128B7FB87007A2B65 /* SongResponse.swift */; };
+		4997A08228B7FB87007A2B65 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4997A08128B7FB87007A2B65 /* SearchResponse.swift */; };
 		4997A08428B8329C007A2B65 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4997A08328B8329C007A2B65 /* NetworkService.swift */; };
+		4997A08728B8B57F007A2B65 /* NetworkDataFecher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4997A08628B8B57F007A2B65 /* NetworkDataFecher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +27,9 @@
 		4997A07628B6B10B007A2B65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4997A07928B6B10B007A2B65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4997A07B28B6B10B007A2B65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4997A08128B7FB87007A2B65 /* SongResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongResponse.swift; sourceTree = "<group>"; };
+		4997A08128B7FB87007A2B65 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		4997A08328B8329C007A2B65 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		4997A08628B8B57F007A2B65 /* NetworkDataFecher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFecher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,14 +65,31 @@
 				4997A06D28B6B106007A2B65 /* AppDelegate.swift */,
 				4997A06F28B6B106007A2B65 /* SceneDelegate.swift */,
 				4997A07128B6B106007A2B65 /* ViewController.swift */,
-				4997A08328B8329C007A2B65 /* NetworkService.swift */,
-				4997A08128B7FB87007A2B65 /* SongResponse.swift */,
+				4997A08528B8B548007A2B65 /* NetworkServices */,
+				4997A08828B8BC66007A2B65 /* Model */,
 				4997A07328B6B106007A2B65 /* Main.storyboard */,
 				4997A07628B6B10B007A2B65 /* Assets.xcassets */,
 				4997A07828B6B10B007A2B65 /* LaunchScreen.storyboard */,
 				4997A07B28B6B10B007A2B65 /* Info.plist */,
 			);
 			path = JSONParsingPractice;
+			sourceTree = "<group>";
+		};
+		4997A08528B8B548007A2B65 /* NetworkServices */ = {
+			isa = PBXGroup;
+			children = (
+				4997A08328B8329C007A2B65 /* NetworkService.swift */,
+				4997A08628B8B57F007A2B65 /* NetworkDataFecher.swift */,
+			);
+			path = NetworkServices;
+			sourceTree = "<group>";
+		};
+		4997A08828B8BC66007A2B65 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4997A08128B7FB87007A2B65 /* SearchResponse.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,10 +164,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4997A08428B8329C007A2B65 /* NetworkService.swift in Sources */,
+				4997A08728B8B57F007A2B65 /* NetworkDataFecher.swift in Sources */,
 				4997A07228B6B106007A2B65 /* ViewController.swift in Sources */,
 				4997A06E28B6B106007A2B65 /* AppDelegate.swift in Sources */,
 				4997A07028B6B106007A2B65 /* SceneDelegate.swift in Sources */,
-				4997A08228B7FB87007A2B65 /* SongResponse.swift in Sources */,
+				4997A08228B7FB87007A2B65 /* SearchResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
