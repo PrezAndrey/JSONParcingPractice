@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+
     }
 }
 
@@ -50,8 +50,14 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = searchResponse?.results[indexPath.row].trackName
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TrackTableViewCell
+        cell.trackName.text = searchResponse?.results[indexPath.row].trackName
+        cell.collectionName.text = searchResponse?.results[indexPath.row].collectionName
+        cell.artistName.text = searchResponse?.results[indexPath.row].artistName
+        
+        
+        
+        
         
         return cell
     }

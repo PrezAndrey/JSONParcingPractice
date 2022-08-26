@@ -20,6 +20,65 @@
                                 <rect key="frame" x="0.0" y="70" width="414" height="826"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="87" id="ahf-vN-Idx" customClass="TrackTableViewCell" customModule="JSONParsingPractice" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="87"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ahf-vN-Idx" id="377-Zm-RxW">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="87"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="gnZ-70-ApJ">
+                                                    <rect key="frame" x="110" y="8" width="280" height="70"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Track Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQn-db-TNc">
+                                                            <rect key="frame" x="0.0" y="0.0" width="280" height="32"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Collection Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="unQ-B3-bGx">
+                                                            <rect key="frame" x="0.0" y="33" width="280" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SSV-7I-nnL">
+                                                            <rect key="frame" x="0.0" y="52" width="280" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="280" id="RdZ-hP-EvV"/>
+                                                        <constraint firstAttribute="height" constant="70" id="bpa-Cm-A4m"/>
+                                                    </constraints>
+                                                </stackView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5vC-HC-AzL">
+                                                    <rect key="frame" x="5" y="0.0" width="97" height="87"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="97" id="bpO-PO-tc5"/>
+                                                        <constraint firstAttribute="height" constant="87" id="zhn-3c-kqv"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="5vC-HC-AzL" firstAttribute="leading" secondItem="377-Zm-RxW" secondAttribute="leading" constant="5" id="2Fj-Kt-PLa"/>
+                                                <constraint firstAttribute="bottom" secondItem="gnZ-70-ApJ" secondAttribute="bottom" constant="9" id="UV3-T0-fWc"/>
+                                                <constraint firstItem="gnZ-70-ApJ" firstAttribute="top" secondItem="377-Zm-RxW" secondAttribute="top" constant="8" id="XVg-qE-OK1"/>
+                                                <constraint firstAttribute="trailing" secondItem="gnZ-70-ApJ" secondAttribute="trailing" constant="24" id="bnf-58-Et0"/>
+                                                <constraint firstAttribute="bottom" secondItem="5vC-HC-AzL" secondAttribute="bottom" id="g1w-t7-wj5"/>
+                                                <constraint firstItem="5vC-HC-AzL" firstAttribute="top" secondItem="377-Zm-RxW" secondAttribute="top" id="hmn-sy-BlV"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="artistName" destination="SSV-7I-nnL" id="1j9-9k-fza"/>
+                                            <outlet property="collectionName" destination="unQ-B3-bGx" id="wta-61-Iot"/>
+                                            <outlet property="trackImage" destination="5vC-HC-AzL" id="zdY-zE-cgw"/>
+                                            <outlet property="trackName" destination="eQn-db-TNc" id="EQA-nH-R4j"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
