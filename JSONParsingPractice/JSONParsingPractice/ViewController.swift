@@ -55,7 +55,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         cell.collectionName.text = searchResponse?.results[indexPath.row].collectionName
         cell.artistName.text = searchResponse?.results[indexPath.row].artistName
         
+        let imageUrl = (searchResponse?.results[indexPath.row].artworkUrl60)!
         
+        
+        if let data = try? Data(contentsOf: URL(string: imageUrl)!) {
+            
+            cell.trackImage.image = UIImage(data: data)
+        }
         
         
         
